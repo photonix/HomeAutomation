@@ -43,5 +43,5 @@ fig['layout'].update(title='Home Temperature/Humidity')
 fig['layout']['yaxis1'].update(title='Temperature')
 fig['layout']['yaxis2'].update(title='Humidity')
 
-plot_url = py.plot(fig, filename='Home Monitoring')
+plot_url = py.plot(fig, filename='Home Monitoring', auto_open=False)
 
