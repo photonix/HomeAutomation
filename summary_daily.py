@@ -7,7 +7,7 @@ import pymysql
 import pandas as pd
 from sqlalchemy import create_engine
 
-if len(sys.argv) > 0:
+if len(sys.argv) > 1:
     days = int(sys.argv[1])
 else:
     days = 3 #default value 3 days
