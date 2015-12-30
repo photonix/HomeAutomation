@@ -44,7 +44,7 @@ for (code, name, i) in zip(room_code, room_name, range(len(room_code))):
 
 fig['layout'].update(title='Home Temperature/Humidity')
 
-fig['layout']['yaxis1'].update(title='Temperature', range=[20, 25])
+fig['layout']['yaxis1'].update(title='Temperature', range=[21, 25])
 fig['layout']['yaxis2'].update(title='Humidity')
 
 plot_url = py.plot(fig, filename='Home Monitoring', auto_open=False)
