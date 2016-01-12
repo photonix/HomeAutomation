@@ -59,13 +59,11 @@ while True:
         t = datetime.datetime.now() #.strftime("%H:%M %Y.%m.%d")
 
         for i in xrange(n):
+            connection.commit()
             SQL_query = "SELECT * FROM temp_humid WHERE room={0} and (timestamp > DATE_SUB(NOW(), INTERVAL {1} MINUTE));".format(room_code[i], interval_minute)
             df = pd.read_sql_query(SQL_query, connection)
-            df.index = df['timestamp']
-    
             temp_stream[i].write({'x': t, 'y': df['temp'].mean()})
             humid_stream[i].write({'x': t, 'y': df['humid'].mean()})
-        
     except:
         print 'Error...\n'
     finally:
