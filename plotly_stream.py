@@ -30,10 +30,10 @@ fig = tools.make_subplots(rows=2, cols=1, shared_xaxes=True)
 
 for i in xrange(n):
     temp[i] = Scatter(x=[], y=[], name='T_Room #' + room_name[i],
-                stream = dict(token=stream_token[i], maxpoints=240) )
+                stream = dict(token=stream_token[i], maxpoints=500) )
     fig.append_trace(temp[i], 1, 1)
     humid[i] = Scatter(x=[], y=[], name='H_Room #' + room_name[i], yaxis='y2',
-                stream=dict(token=stream_token[n+i], maxpoints=240) )
+                stream=dict(token=stream_token[n+i], maxpoints=500) )
     fig.append_trace(humid[i], 2, 1)
 
 fig['layout'].update(title='Home Temperature/Humidity - Live Stream')
@@ -52,7 +52,7 @@ for i in xrange(n):
     humid_stream[i].open()
 
 
-interval_minute = 3
+interval_minute = 1
 #the main sensor reading loop
 while True:
     try:
